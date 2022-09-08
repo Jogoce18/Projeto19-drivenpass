@@ -1,0 +1,88 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          Int           @id @default(autoincrement())
+  email       String        @unique
+  password    String
+  notes       Notes[]
+  wifi        Wifi[]
+  credentials Credentials[]
+  documents   Documents[]
+  createdAt   DateTime      @default(now())
+  @@map("users")
+}
+
+model Credentials {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  url       String
+  title     String
+  username  String
+  password  String
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model Notes {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  title     String
+  content   String
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model Wifi {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  title     String
+  name      String
+  password  String
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model Cards {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  title     String
+  number    String
+  holder    String
+  expiry    String
+  cvv       String
+  password  String
+  isVirtual Boolean  @default(false)
+  type      CardType
+  createdAt DateTime @default(now())
+}
+
+model Documents {
+  id          Int          @id @default(autoincrement())
+  userId      Int
+  fullname    String
+  dateEmitted DateTime
+  dateExpires DateTime
+  numberRef   String
+  institution String
+  type        DocumentType
+  user        User         @relation(fields: [userId], references: [id])
+  createdAt   DateTime     @default(now())
+}
+
+enum CardType {
+  CREDIT
+  DEBIT
+  HYBRID
+}
+
+enum DocumentType {
+  NATIONAL_ID
+  DRIVING_LICENSE
+}
