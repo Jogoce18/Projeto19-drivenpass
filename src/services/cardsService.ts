@@ -2,7 +2,7 @@ import { Cards } from "@prisma/client";
 
 import { checkUser } from "../utils/autUtils";
 import * as passUtils from "../utils/encryptUtils";
-import * as repository from "../repositories/cardRepository";
+import * as repository from "../repositories/cardsRepository";
 
 export type cardsData = Omit<Cards, "id" | "createdAt">;
 

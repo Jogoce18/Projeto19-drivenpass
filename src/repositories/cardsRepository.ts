@@ -1,5 +1,6 @@
 import connection from '../config/db';
-import { cardsData } from './../services/cardService';
+
+import { cardsData } from './../services/cardsService';
 
 export async function searchByTitleAndUserId(title: string, userId: number) {
   return connection.cards.findFirst({

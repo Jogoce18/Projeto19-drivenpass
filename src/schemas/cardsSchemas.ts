@@ -1,6 +1,6 @@
 import Joi from "joi";
-
-export const cardSchema = Joi.object({
+import { cardsData } from "../services/cardsService";
+export const cardSchema = Joi.object<cardsData>({
   title: Joi.string().required(),
   number: Joi.string().required(),
   holder: Joi.string().required(),

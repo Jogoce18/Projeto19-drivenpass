@@ -1,16 +1,17 @@
 import { Router } from "express";
 
 import { validateJWT } from "../middlewares/validateJWT";
-import { create,getCardsUser,getCard,deleteCard } from "../controllers/cardController";
+import { create,getCardsUser,getCard,deleteCard } from "../controllers/cardsController";
 
-import { cardSchema } from "../schemas/cardSchema";
+import { cardSchema } from './../schemas/cardsSchemas';
 import { validateSchema } from "../middlewares/validateSchema";
+
 
 const cardsRouter = Router();
 
-cardsRouter.post("/card",validateSchema(cardSchema),create);
+cardsRouter.post("/cards",validateJWT,validateSchema(cardSchema),create);
 
-cardsRouter.get( "/cards",validateJWT,getCardsUser);
+cardsRouter.get("/cards",validateJWT,getCardsUser);
 
 cardsRouter.get("/card/:id",validateJWT,getCard);
 

@@ -1,0 +1,8 @@
+-- DropForeignKey
+ALTER TABLE "Cards" DROP CONSTRAINT "Cards_userId_fkey";
+
+-- AlterTable
+ALTER TABLE "Wifi" ADD COLUMN     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP;
+
+-- AddForeignKey
+ALTER TABLE "Cards" ADD CONSTRAINT "Cards_userId_fkey" FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

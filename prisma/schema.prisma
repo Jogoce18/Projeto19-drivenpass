@@ -6,7 +6,6 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
-
 model User {
   id          Int           @id @default(autoincrement())
   email       String        @unique
@@ -15,6 +14,7 @@ model User {
   wifi        Wifi[]
   credentials Credentials[]
   documents   Documents[]
+  cards       Cards[]
   createdAt   DateTime      @default(now())
   @@map("users")
 }
@@ -61,6 +61,7 @@ model Cards {
   isVirtual Boolean  @default(false)
   type      CardType
   createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
 }
 
 model Documents {
