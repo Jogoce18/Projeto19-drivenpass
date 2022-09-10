@@ -23,7 +23,6 @@ export async function getCard(req: Request, res: Response) {
   const card = await service.getCard(cardId, userId);
   res.send(card);
 }
-
 export async function deleteCard(req: Request, res: Response) {
   const cardId = Number(req.params.id);
   const userId = Number(res.locals.user.id);
