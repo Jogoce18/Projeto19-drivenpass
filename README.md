@@ -34,7 +34,7 @@ we only create one “master” password and all other passwords kept secret! So
 
 ### Routas de autenticação
 ```yml
-POST /signup
+POST /sign-up
     - Rota para cadastrar um novo usuário
     - headers: {}
     - body: {
@@ -44,7 +44,7 @@ POST /signup
 ```
     
 ```yml 
-POST /signin
+POST /sign-in
     - Rota para fazer login
     - headers: {}
     - body: {
@@ -56,7 +56,7 @@ POST /signin
 
 ### Rotas de credenciais
 ```yml
-POST /credentials
+POST /credential
     - Rota para cadastrar uma nova credencial
     - headers: { "Authorization": "Bearer $token" }
     - body: {
@@ -91,7 +91,7 @@ DELETE /credentials/:ID
 
 ### Rotas de notas seguras
 ```yml
-POST /notes
+POST /note
     - Rota para cadastrar uma nova nota segura
     - headers: { "Authorization": "Bearer $token" }
     - body: {
