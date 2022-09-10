@@ -38,8 +38,8 @@ POST /signup
     - Rota para cadastrar um novo usuário
     - headers: {}
     - body: {
-        "email": "lorem@gmail.com",
-        "password": "loremipsum"
+        "email": "vick@gmail.com",
+        "password": "vickidavila"
     }
 ```
     
@@ -48,8 +48,8 @@ POST /signin
     - Rota para fazer login
     - headers: {}
     - body: {
-        "email": "lorem@gmail.com",
-        "password": "loremipsum"
+        "email": "vick@gmail.com",
+        "password": "vickdavila"
     }
 ```
 ***   
@@ -60,10 +60,10 @@ POST /credentials
     - Rota para cadastrar uma nova credencial
     - headers: { "Authorization": "Bearer $token" }
     - body: {
-        "title": "lorem ipsum",
-        "url": "https://lorem.ipsum.com",
-        "username": "lorem",
-        "password": "loremipsum"
+        "title": "vick ola",
+        "url": "https://vick.ola.com",
+        "username": "lola",
+        "password": "vickdavila"
     }
 ```
     
